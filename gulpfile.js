@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 var asar = require('asar');
 var babelify = require('babelify');
