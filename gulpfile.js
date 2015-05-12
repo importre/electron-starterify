@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var asar = require('asar');
 var babelify = require('babelify');
@@ -43,6 +43,14 @@ gulp.task('browserify', function () {
     .pipe(gulp.dest(o.distJs));
 });
 
+gulp.task('browserifyDev', function () {
+  return browserify(o.jsx)
+    .transform(babelify)
+    .bundle()
+    .pipe(source(o.bundle))
+    .pipe(gulp.dest(o.distJs));
+});
+
 gulp.task('asar', ['browserify'], function () {
   return asar.createPackage('dist/app/', 'dist/app.asar', function () {
   })
@@ -60,16 +68,16 @@ gulp.task('styles', function () {
 gulp.task('browserSync', function () {
   var bs = browserSync.create();
   bs.watch("app/**/*").on("change", function () {
-    gulp.start(['browserify', 'copy', 'styles']);
+    gulp.start(['browserifyDev', 'copy', 'styles']);
   });
 });
 
-gulp.task('electron', ['browserify'], shell.task([
+gulp.task('electron', ['browserifyDev'], shell.task([
   './node_modules/electron-prebuilt/dist/Electron.app/Contents/MacOS/Electron dist/app'
 ]));
 
 gulp.task('watch', ['clean'], function () {
-  gulp.start(['browserify', 'copy', 'styles', 'browserSync', 'electron']);
+  gulp.start(['browserifyDev', 'copy', 'styles', 'browserSync', 'electron']);
 });
 
 gulp.task('build', ['clean'], function () {

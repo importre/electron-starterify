@@ -26,8 +26,10 @@ app.on('ready', function () {
   mainWindow.loadUrl(`file://${__dirname}/index.html`);
 
   var bs = require("browser-sync").create();
-  bs.watch(`${__dirname}/**/*`).on("change", function () {
-    mainWindow.reloadIgnoringCache();
+  bs.watch(`${__dirname}/**/*`, function (event, file) {
+    if (event == "change" && file.match(/(.css|.html|.js)$/g)) {
+      mainWindow.reloadIgnoringCache();
+    }
   });
 
   if (process.platform == 'darwin') {
