@@ -4,6 +4,11 @@
 
 
 ## Usage
+
+```sh
+$ npm install
+```
+
 ### Development
 
 ```sh
