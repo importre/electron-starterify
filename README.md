@@ -5,26 +5,30 @@
 
 ## Usage
 
+Install dependencies.
+
 ```sh
 $ npm install
 ```
 
-### Development (OSX only currently)
+### Development
 
 ```sh
 $ gulp watch
 ```
 
+#### supported platforms
+- Windows
+- OSX
+
 ### Release (Deploy)
 
 1. Set `release` [task option][opt] in `gulpfile.js` if you want.
   - Check [latest version of electron][latest]
-
 2. Run
-  ```sh
-  $ gulp build
-  ```
-
+```sh
+$ gulp build
+```
 3. See `./release` directory
 
 
