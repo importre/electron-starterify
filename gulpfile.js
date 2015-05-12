@@ -63,17 +63,31 @@ gulp.task('styles', function () {
 
 gulp.task('browserSync', function () {
   var bs = browserSync.create();
-  bs.watch("app/**/*").on("change", function () {
+  bs.watch('app/**/*').on('change', function () {
     gulp.start(['browserifyDev', 'copy', 'styles']);
   });
 });
 
-gulp.task('electron', ['browserifyDev'], shell.task([
-  './node_modules/electron-prebuilt/dist/Electron.app/Contents/MacOS/Electron dist/app'
-]));
+gulp.task('electron', ['browserifyDev'], function () {
+  var cmd = '';
+  switch (process.platform) {
+    case 'darwin':
+      cmd = './node_modules/electron-prebuilt/dist/Electron.app/Contents/MacOS/Electron dist/app';
+      break;
+    case 'win32':
+      cmd = 'node_modules\\electron-prebuilt\\dist\\electron.exe dist\\app';
+      break;
+    default:
+      console.log(process.platform + ' is not supported.');
+      return;
+  }
 
-gulp.task('release', ['browserify'], function() {
-  gulp.src("")
+  return gulp.src('', {read: false})
+    .pipe(shell(cmd));
+});
+
+gulp.task('release', ['browserify'], function () {
+  gulp.src('')
     .pipe(electron({
       src: './dist/app',
       packageJson: packageJson,
@@ -83,7 +97,7 @@ gulp.task('release', ['browserify'], function() {
       rebuild: false,
       platforms: ['win32-ia32', 'darwin-x64']
     }))
-    .pipe(gulp.dest(""));
+    .pipe(gulp.dest(''));
 });
 
 gulp.task('watch', ['clean'], function () {
