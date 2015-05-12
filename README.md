@@ -30,7 +30,13 @@ $ gulp watch
 3. See `./release` directory
 
 
+## Troubleshooting
+
+- [Error: spawn zip ENOENT][issue1] on Windows
+
+
 [electron]: http://electron.atom.io/
 [react]: http://facebook.github.io/react/
 [latest]: https://github.com/atom/electron/releases/latest
 [opt]: https://github.com/mainyaa/gulp-electron#options
+[issue1]: https://github.com/importre/electron-starterify/issues/1#issuecomment-101391136
