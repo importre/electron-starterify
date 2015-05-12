@@ -77,6 +77,9 @@ gulp.task('electron', ['browserifyDev'], function () {
     case 'win32':
       cmd = 'node_modules\\electron-prebuilt\\dist\\electron.exe dist\\app';
       break;
+    case 'linux':
+      cmd = './node_modules/electron-prebuilt/dist/electron dist/app';
+      break;
     default:
       console.log(process.platform + ' is not supported.');
       return;

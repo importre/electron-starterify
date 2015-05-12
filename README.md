@@ -17,10 +17,6 @@ $ npm install
 $ gulp watch
 ```
 
-#### supported platforms
-- Windows
-- OSX
-
 ### Release (Deploy)
 
 1. Set `release` [task option][opt] in `gulpfile.js` if you want.
