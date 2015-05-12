@@ -35,6 +35,7 @@
     "gulp-changed": "^1.2.1",
     "gulp-copy": "0.0.2",
     "gulp-csso": "^1.0.0",
+    "gulp-electron": "0.0.3",
     "gulp-notify": "^2.2.0",
     "gulp-sass": "^2.0.0",
     "gulp-shell": "^0.4.1",

@@ -25,12 +25,15 @@ app.on('ready', function () {
 
   mainWindow.loadUrl(`file://${__dirname}/index.html`);
 
-  var bs = require("browser-sync").create();
-  bs.watch(`${__dirname}/**/*`, function (event, file) {
-    if (event == "change" && file.match(/(.css|.html|.js)$/g)) {
-      mainWindow.reloadIgnoringCache();
-    }
-  });
+  try {
+    var bs = require("browser-sync").create();
+    bs.watch(`${__dirname}/**/*`, function (event, file) {
+      if (event == "change" && file.match(/(.css|.html|.js)$/g)) {
+        mainWindow.reloadIgnoringCache();
+      }
+    });
+  } catch (e) {
+  }
 
   if (process.platform == 'darwin') {
     var darwinTmpl = [
