@@ -9,7 +9,7 @@
 $ npm install
 ```
 
-### Development
+### Development (OSX only currently)
 
 ```sh
 $ gulp watch
