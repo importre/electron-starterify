@@ -1,6 +1,6 @@
 import React from 'react'
 
-let Electron = React.createClass({
+let Main = React.createClass({
   render: function () {
     return (
       <div>
@@ -11,4 +11,4 @@ let Electron = React.createClass({
   }
 });
 
-export default Electron;
+export default Main;

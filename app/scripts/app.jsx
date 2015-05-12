@@ -1,6 +1,6 @@
 import React from 'react'
-import Electron from './components/electron.jsx'
+import Main from './components/main.jsx'
 
 window.React = React;
 
-React.render(<Electron />, document.body);
+React.render(<Main/>, document.body);
