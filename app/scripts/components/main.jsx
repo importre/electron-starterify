@@ -5,7 +5,7 @@ let Main = React.createClass({
     return (
       <div>
         <h1>electron-starterify</h1>
-        Hello, <b>Electron</b>!!!
+        <img src="images/term.png" /> Hello, <b>Electron</b>!!!
       </div>
     )
   }

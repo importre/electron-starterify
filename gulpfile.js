@@ -29,9 +29,18 @@ gulp.task('clean', function (cb) {
   del(['dist', 'release'], cb);
 });
 
-gulp.task('copy', function () {
+gulp.task('images', function () {
+  return gulp.src('images/**/*')
+    .pipe(gulp.dest('dist/app/images'));
+});
+
+gulp.task('etc', function () {
   return gulp.src(['app/index.html', 'app/index.js', 'package.json'])
     .pipe(gulp.dest('dist/app'));
+});
+
+gulp.task('copy', function () {
+  gulp.start(['images', 'etc']);
 });
 
 gulp.task('browserify', function () {
@@ -96,7 +105,7 @@ gulp.task('release', ['browserify'], function () {
       packageJson: packageJson,
       release: './release',
       cache: './cache',
-      version: 'v0.25.3',
+      version: 'v0.26.0',
       rebuild: false,
       platforms: ['win32-ia32', 'darwin-x64']
     }))
