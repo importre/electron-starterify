@@ -1,3 +1,6 @@
+# ANOTHER *[EPP][epp](Electron aPPlication)*
+
+
 # electron-starterify
 
 :electric_plug: [Electron][electron] application skeleton based on [React][react]
@@ -40,3 +43,4 @@ $ gulp watch
 [latest]: https://github.com/atom/electron/releases/latest
 [opt]: https://github.com/mainyaa/gulp-electron#options
 [issue1]: https://github.com/importre/electron-starterify/issues/1#issuecomment-101391136
+[epp]: https://github.com/importre/epp/
